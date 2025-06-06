@@ -9,26 +9,31 @@ int m;
 int c;
 while(s<=e){
     m=s+(e-s)/2;
-    if(nums[m]>nums[m+1]){
+    if(m<e and nums[m]>nums[m+1]){
         s= m;
         break;
     }
-    else if(nums[m]<nums[m-1]){
-            s= m-1;
-            break;
+    else if(m>s and nums[m]<nums[m-1]){
+        s= m-1;
+        break;
     }
     else if (nums[0]>nums[m]){
-            e=m-1;
+        e=m-1;
     }
-
+    
     else if (nums[0]<nums[m]){
             s=m+1;
+        }
+        else{
+            s=m;
+            break;
     }
 
 
 }
+
 cout<<s;
-int e1= s+1;
+int e1= s;
 int s1=0;
 while(s1<=e1){
     m=s1+(e1-s1)/2;
@@ -45,7 +50,7 @@ while(s1<=e1){
 
 
 int e2= nums.size()-1;
-int s2=s+1;
+int s2=s;
 while(s2<=e2){
     m=s2+(e2-s2)/2;
     if(nums[m]>target){
@@ -80,8 +85,9 @@ vector<int> nums1={4,5,6,7,0,1,2};
 vector<int> nums2={3,1};
 vector<int> nums3={3,5,1};
 vector<int> nums4={1,2,3,4,5,6,7,8};
-int target=4;
-int r=rotatedarray(nums4,target);
+vector<int> nums5={1};
+int target=1;
+int r=rotatedarray(nums2,target);
 cout<<r;
      
 }
